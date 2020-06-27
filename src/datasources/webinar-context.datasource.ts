@@ -1,16 +1,18 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
-
+const dotenv = require('dotenv');
+dotenv.config();
 const config = {
   name: 'webinarContext',
   connector: 'mongodb',
-  url: 'mongodb+srv://edoctor_user:DRgG0gqiFNIQw2hb@cluster0-fbdii.mongodb.net/lb4_edoctor?retryWrites=true&w=majority',
+  //url: 'mongodb+srv://edoctor_user:DRgG0gqiFNIQw2hb@cluster0-fbdii.mongodb.net/lb4_edoctor?retryWrites=true&w=majority',
+  url: process.env.Connection_String,
   host: '',
   port: 0,
   user: '',
   password: '',
   database: '',
-  useNewUrlParser: true
+  useNewUrlParser: true,
 };
 
 // Observe application's life cycle to disconnect the datasource when
